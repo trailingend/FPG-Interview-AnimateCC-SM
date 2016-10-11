@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FPG-01</title>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	.ctnr {
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+	.spacer {
+		position: relative;
+		width: 100%;
+		background: white;
+		height: 700px;
+	}
+	#trigger {
+		width: 100%;
+		height: 5px;
+		background: red;
+	}
+	#title {
+		font-size: 18px;
+		text-align: center;
+	}
+	#desc {
+		font-size: 13px;
+		text-align: left;
+		width: 80%;
+		margin: 0 10%;
+	}
+</style>
+</head>
+<body>
+	<section class="ctnr">
+		<div class="spacer"></div>	
+		<div id="trigger"></div>
+		<h2 id="title">Lorem Ipsum</h2>
+		<p id="desc">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
+		<div class="spacer"></div>
+	</section>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+	<script src="ScrollMagic.js"></script>
+	<script src="animation.gsap.js"></script>
+	<script>
+		var tweenTitle = new TweenLite.from("#title", 0.5, {opacity: 0, y: '10px'});
+		var tweenDesc = new TweenLite.from("#desc", 0.5, {opacity: 0, y: '10px'});
+		var controller = new ScrollMagic.Controller();
+		var scene1 = new ScrollMagic.Scene({
+						triggerElement: "#trigger"
+					})
+					.setTween(tweenTitle) // trigger a TweenMax.to tween
+					.addTo(controller);
+		var scene2 = new ScrollMagic.Scene({
+						triggerElement: "#trigger"
+					})
+					.setTween(tweenDesc) // trigger a TweenMax.to tween
+					.addTo(controller);
+	</script>
+</body>
+</html>

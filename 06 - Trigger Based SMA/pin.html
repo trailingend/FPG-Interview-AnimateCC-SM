@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FPG-01</title>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	.ctnr {
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+	.spacer {
+		position: relative;
+		width: 100%;
+		background: black;
+		height: 900px;
+	}
+	.sec2 {
+		position: relative;
+		width: 50%;
+		float: right;
+		background: teal;
+	}
+	.sec1 {
+		height: 0px;
+		background: white;
+	}
+	.title {
+		width: 50%;
+		text-align: center;
+		font-size: 24px;
+		font-family: sans-serif;
+		background: green;
+		height: 600px;
+	}
+	.color1 {
+		height: 600px;
+		background: red;
+	}
+	.color2 {
+		height: 600px;
+		background: orange;
+	}
+	.color3 {
+		height: 600px;
+		background: yellow;
+	}
+	.color4 {
+		height: 600px;
+		background: pink;
+	}
+</style>
+</head>
+<body>
+	<section class="ctnr">
+		<div class="spacer"></div>
+		<div class="sec1">
+			<div class="title">Fixed Section</div>
+		</div>	
+		<div class="sec2">
+			<div class="color1"></div>
+			<div class="color2"></div>
+			<div class="color3"></div>
+			<div class="color4"></div>
+		</div>
+	</section>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+	<script src="ScrollMagic.js"></script>
+	<script src="animation.gsap.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+		var controller = new ScrollMagic.Controller();
+		var scene = new ScrollMagic.Scene({
+						triggerElement: ".sec1",
+						triggerHook: 0
+					})
+					.setPin(".sec1")
+					.addTo(controller);
+
+	</script>
+</body>
+</html>

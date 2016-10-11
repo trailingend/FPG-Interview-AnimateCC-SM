@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FPG-01</title>
+<style>
+	#video {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+</style>
+</head>
+<body>
+	<section class="ctnr">
+		<div id="dummy"></div>
+		<video id="video">
+			<source type="video/mp4" src="FPG-01.mp4"></source>
+		</video>
+	</section>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+	<script src="ScrollMagic.js"></script>
+	<script src="animation.gsap.js"></script>
+	<script>
+		var frameNumber = 0, 
+			oneUnitTime = 3000,
+			dummy = document.getElementById("dummy"), 
+			video = document.getElementById('video'); 
+
+		video.addEventListener('loadedmetadata', function() {
+			dummy.style.height = Math.ceil(video.duration) * oneUnitTime + "px";
+
+			var tween = new TweenLite.to(video, 1, { currentTime: video.duration });
+			var controller = new ScrollMagic.Controller();
+
+			new ScrollMagic.Scene({
+					duration: Math.ceil(video.duration) * oneUnitTime,   
+				})
+				.setTween(tween)
+				.addTo(controller);
+		});
+
+	</script>
+</body>
+</html>
